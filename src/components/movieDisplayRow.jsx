@@ -1,16 +1,17 @@
 import React from 'react';
+import { URLS } from '../constants';
 
 
-let MovieDisplayRow = ({movieRow}) => {
+let MovieDisplayRow = ({ movieRow }) => {
 	return (
-		<tr key={movieRow.id}>
+		<tr>
 			<td scope="row">
-				<img src={`http://image.tmdb.org/t/p/w185/${movieRow.poster_path}`} />
+				<img src={`${URLS.IMAGE_BASE_PATH}/${movieRow.poster_path}`} />
 			</td>
 			<td>{movieRow.original_title}</td>
 			<td>{movieRow.overview}</td>
 			<td>{movieRow.release_date}</td>
-		</tr>
+		</tr >
 	);
 };
 
