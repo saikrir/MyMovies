@@ -1,5 +1,4 @@
 import React from 'react';
-
 const Header = (props) => {
 	return (
 		<div className="col-md-12">
