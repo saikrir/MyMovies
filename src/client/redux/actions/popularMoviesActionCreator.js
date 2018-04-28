@@ -1,11 +1,11 @@
-import {ACTIONS, API_KEY, URLS,API_BASE_PATH, THRILLER_GENRE} from '../../constants';
+import { ACTIONS, API_KEY, URLS, API_BASE_PATH } from '../../constants';
 import axios from 'axios';
 
 
 
 function loadPopularMovies(genreId) {
 	return (dispatch) => {
-		dispatch({	type: ACTIONS.POPULAR_MOVIES_REQUEST_STARTED});
+		dispatch({ type: ACTIONS.POPULAR_MOVIES_REQUEST_STARTED });
 		const popularMoviesUrl = `${API_BASE_PATH}${URLS.POPULAR_MOVIES_URL}&api_key=${API_KEY}&with_genres=${genreId}`;
 		axios.get(popularMoviesUrl).then(response => {
 			dispatch({
@@ -42,9 +42,9 @@ function loadGenres() {
 	};
 }
 
-function loadFavoriteMovies(genre) {
+function loadFavoriteMovies() {
 	const genresURls = `${API_BASE_PATH}${URLS.MOVIE_GENRES}&api_key=${API_KEY}`;
-	return dispatch=> {
+	return dispatch => {
 		dispatch({
 			type: ACTIONS.GENRES_REQUEST_STARTED
 		});
@@ -56,9 +56,9 @@ function loadFavoriteMovies(genre) {
 				payload: response.data
 			});
 			return response;
-		}).then((response)=> {
-			let thrillerGenre = response.data.genres.find(genre => genre.name === 'Thriller');
-			const popularMoviesUrl = `${API_BASE_PATH}${URLS.POPULAR_MOVIES_URL}&api_key=${API_KEY}`;
+		}).then((response) => {
+			let firstGenre = response.data.genres[0];
+			const popularMoviesUrl = `${API_BASE_PATH}${URLS.POPULAR_MOVIES_URL}&api_key=${API_KEY}&with_genres=${firstGenre.id}`;
 			axios.get(popularMoviesUrl).then(moviesResponse => {
 				dispatch({
 					type: ACTIONS.POPULAR_MOVIES_REQUEST_COMPLETED,
@@ -81,4 +81,4 @@ function loadFavoriteMovies(genre) {
 }
 
 
-export {loadPopularMovies, loadGenres, loadFavoriteMovies};
+export { loadPopularMovies, loadGenres, loadFavoriteMovies };
