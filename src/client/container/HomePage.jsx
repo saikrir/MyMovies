@@ -4,7 +4,9 @@ import { loadPopularMovies, loadGenres, loadFavoriteMovies } from '../redux/acti
 import MovieResults from '../components/movieResults';
 import { reduxForm, formValueSelector, Field } from 'redux-form';
 
-
+/**
+ * 
+ */
 class HomePage extends React.Component {
 
 	constructor(props) {

@@ -9,7 +9,10 @@ export const ACTIONS = {
 	POPULAR_MOVIES_REQUEST_ERROR: 'popular_movies_request_error',
 	GENRES_REQUEST_STARTED: 'genres_request_started',
 	GENRES_REQUEST_COMPLETED: 'genres_request_completed',
-	GENRES_REQUEST_ERROR: 'genres_request_error'
+	GENRES_REQUEST_ERROR: 'genres_request_error',
+	MOVIE_DETAILS_REQUEST_STARTED: 'movie_details_request_started',
+	MOVIE_DETAILS_REQUEST_COMPLETED: 'movie_details_request_completed',
+	MOVIE_DETAILS_REQUEST_ERROR: 'movie_details_request_error',
 };
 
 
@@ -17,5 +20,7 @@ export const ACTIONS = {
 export const URLS = {
 	POPULAR_MOVIES_URL: '/3/discover/movie?en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1',
 	IMAGE_BASE_PATH: 'http://image.tmdb.org/t/p/w185/',
-	MOVIE_GENRES: '/3/genre/movie/list?language=en-US'
+	MOVIE_GENRES: '/3/genre/movie/list?language=en-US',
+	MOVIE_DETAILS: '/3/movie/',
+	IMDB_BASE_PATH: 'https://www.imdb.com/title/'
 };
