@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './components/header';
 import HomePage from './container/homePage';
-import Navigation from './components/navigation';
 import MovieDetails from './container/movieDetails';
 import store from './redux/configureStore';
 import { Provider } from 'react-redux';
@@ -21,7 +20,6 @@ const App = () => {
 	);
 };
 
-
 const MovieRouter = () => {
 	return (
 		<Switch>
@@ -29,6 +27,6 @@ const MovieRouter = () => {
 			<Route path="/" component={HomePage} />
 		</Switch>
 	);
-}
+};
 
 export default App;

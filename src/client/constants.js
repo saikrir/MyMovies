@@ -15,8 +15,6 @@ export const ACTIONS = {
 	MOVIE_DETAILS_REQUEST_ERROR: 'movie_details_request_error',
 };
 
-
-
 export const URLS = {
 	POPULAR_MOVIES_URL: '/3/discover/movie?en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1',
 	IMAGE_BASE_PATH: 'http://image.tmdb.org/t/p/w185/',
