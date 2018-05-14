@@ -8,7 +8,6 @@ import { reduxForm, formValueSelector, Field } from 'redux-form';
  * 
  */
 class HomePage extends React.Component {
-
 	constructor(props) {
 		super(props);
 		this.renderSelect = this.renderSelect.bind(this);

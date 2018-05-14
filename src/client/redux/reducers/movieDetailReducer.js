@@ -1,19 +1,17 @@
-import { ACTIONS } from "../../constants";
+import { ACTIONS } from '../../constants';
 
 let movieDetailReducer = (state = {}, action) => {
-
-    console.log("Action : ", action);
-    switch (action.type) {
-        case ACTIONS.MOVIE_DETAILS_REQUEST_STARTED: {
-            console.log("Movie Details Started Loading ", action.payload);
-        }
-        case ACTIONS.MOVIE_DETAILS_REQUEST_COMPLETED: {
-            console.log("Reducer", action.payload);
-            return action.payload;
-        }
-    }
-
-    return state;
-}
+	console.log(action.payload);
+	switch (action.type) {
+	case ACTIONS.MOVIE_DETAILS_REQUEST_STARTED: {
+		break;
+	}
+	case ACTIONS.MOVIE_DETAILS_REQUEST_COMPLETED: {
+		state = action.payload;
+		break;
+	}
+	}
+	return state;
+};
 
 export default movieDetailReducer;

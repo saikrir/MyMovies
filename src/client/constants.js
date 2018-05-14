@@ -20,5 +20,6 @@ export const URLS = {
 	IMAGE_BASE_PATH: 'http://image.tmdb.org/t/p/w185/',
 	MOVIE_GENRES: '/3/genre/movie/list?language=en-US',
 	MOVIE_DETAILS: '/3/movie/',
-	IMDB_BASE_PATH: 'https://www.imdb.com/title/'
+	IMDB_BASE_PATH: 'https://www.imdb.com/title/',
+	MOVIE_CREDITS_PATH: '/3/movie/{movie_id}/credits'
 };
