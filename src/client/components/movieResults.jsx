@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MovieDisplayRow from './movieDisplayRow';
 
 let MovieResults = ({ results }) => {
@@ -17,6 +18,10 @@ let MovieResults = ({ results }) => {
 			</tbody>
 		</table>
 	);
+};
+
+MovieResults.propTypes = {
+	results: PropTypes.array
 };
 
 export default MovieResults;

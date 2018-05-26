@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { URLS } from '../constants';
 
 const cardStyle = {
@@ -17,5 +18,7 @@ const CastMemberDetail = ({ castMember }) =>
 		</div>
 	</li >;
 
-
+CastMemberDetail.propTypes = {
+	castMember: PropTypes.object
+};
 export default CastMemberDetail;

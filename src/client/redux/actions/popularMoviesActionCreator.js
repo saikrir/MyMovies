@@ -43,7 +43,6 @@ function loadGenres() {
 }
 
 function loadFavoriteMovies() {
-	const genresURls = `${API_BASE_PATH}${URLS.MOVIE_GENRES}&api_key=${API_KEY}`;
 	return dispatch => {
 		dispatch({
 			type: ACTIONS.GENRES_REQUEST_STARTED

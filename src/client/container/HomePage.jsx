@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { loadPopularMovies, loadGenres, loadFavoriteMovies } from '../redux/actions/popularMoviesActionCreator';
 import MovieResults from '../components/movieResults';
 import { reduxForm, formValueSelector, Field } from 'redux-form';
-
+import PropTypes from 'prop-types';
 /**
  * 
  */
@@ -57,15 +57,25 @@ class HomePage extends React.Component {
 				</form>
 			</div>);
 	}
+
 }
 
+HomePage.propTypes = {
+	loadFavoriteMovies: PropTypes.func,
+	selectedGenre: PropTypes.func,
+	loadPopularMovies: PropTypes.func,
+	genres: PropTypes.object,
+	handleSubmit: PropTypes.func,
+	popularMovies: PropTypes.func
+};
+
 let mapStateToProps = (state) => {
-	let { form, popularMovies, genres } = state;
+	let { popularMovies, genres } = state;
 	const selectedGenre = formValueSelector('HomePage')(state, 'genre');
 	return { selectedGenre, popularMovies, genres };
 };
 
-
+/* eslint no-class-assign: 0 */
 HomePage = connect(mapStateToProps, { loadPopularMovies, loadGenres, loadFavoriteMovies })(HomePage);
 export default reduxForm({
 	form: 'HomePage'

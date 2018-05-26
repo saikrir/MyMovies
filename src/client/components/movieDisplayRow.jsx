@@ -2,6 +2,7 @@ import React from 'react';
 import { URLS } from '../constants';
 import { formatDate } from '../helper/movieUtils';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 
 let MovieDisplayRow = ({ movieRow }) =>
@@ -15,5 +16,9 @@ let MovieDisplayRow = ({ movieRow }) =>
 		<td>{movieRow.overview}</td>
 		<td>{formatDate(movieRow.release_date)}</td>
 	</tr >;
+
+MovieDisplayRow.propTypes = {
+	movieRow: PropTypes.object
+};
 
 export default MovieDisplayRow;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { URLS } from '../constants';
 import { NavLink } from 'react-router-dom';
 import { formatDate } from '../helper/movieUtils';
@@ -37,5 +38,9 @@ const MovieDetails = ({ movieDetails }) =>
 			</div>
 		</div>
 	</div>;
+
+MovieDetails.propTypes = {
+	movieDetails: PropTypes.array
+};
 
 export default MovieDetails;
