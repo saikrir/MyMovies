@@ -21,7 +21,7 @@ MovieList.propTypes = {
 	match: PropTypes.object,
 	loadMovieDetails: PropTypes.func,
 	movieId: PropTypes.string,
-	movieDetails: PropTypes.array
+	movieDetails: PropTypes.object
 };
 
 function mapStateToProps({ movieDetails }) {

@@ -12,15 +12,20 @@ class HomePage extends React.Component {
 		super(props);
 		this.renderSelect = this.renderSelect.bind(this);
 		this.genreOptions = this.genreOptions.bind(this);
+		this.state = {
+			selectedGenre: ''
+		};
 	}
 
 	componentDidMount() {
-		this.props.loadFavoriteMovies();
+		if (this.props.popularMovies.length == 0)
+			this.props.loadFavoriteMovies();
 	}
 
-	componentWillReceiveProps(newProps) {
-		if (newProps.selectedGenre !== this.props.selectedGenre) {
-			this.props.loadPopularMovies(newProps.selectedGenre);
+	componentWillReceiveProps({ popularMovies, selectedGenre }) {
+		//console.log(popularMovies);
+		if (this.props.selectedGenre != selectedGenre) {
+			this.props.loadPopularMovies(selectedGenre);
 		}
 	}
 
@@ -62,21 +67,27 @@ class HomePage extends React.Component {
 
 HomePage.propTypes = {
 	loadFavoriteMovies: PropTypes.func,
-	selectedGenre: PropTypes.func,
+	selectedGenre: PropTypes.string,
 	loadPopularMovies: PropTypes.func,
-	genres: PropTypes.object,
+	genres: PropTypes.array,
 	handleSubmit: PropTypes.func,
-	popularMovies: PropTypes.func
+	popularMovies: PropTypes.array,
+	loadGenres: PropTypes.func
 };
 
 let mapStateToProps = (state) => {
 	let { popularMovies, genres } = state;
 	const selectedGenre = formValueSelector('HomePage')(state, 'genre');
-	return { selectedGenre, popularMovies, genres };
+	return {
+		selectedGenre, popularMovies, genres, initalValues: {
+			genre: selectedGenre
+		}
+	};
 };
 
 /* eslint no-class-assign: 0 */
 HomePage = connect(mapStateToProps, { loadPopularMovies, loadGenres, loadFavoriteMovies })(HomePage);
 export default reduxForm({
-	form: 'HomePage'
+	form: 'HomePage',
+	destroyOnUnmount: false
 })(HomePage);

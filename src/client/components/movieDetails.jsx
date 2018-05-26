@@ -40,7 +40,7 @@ const MovieDetails = ({ movieDetails }) =>
 	</div>;
 
 MovieDetails.propTypes = {
-	movieDetails: PropTypes.array
+	movieDetails: PropTypes.object
 };
 
 export default MovieDetails;
