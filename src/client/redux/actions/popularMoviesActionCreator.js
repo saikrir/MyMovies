@@ -6,7 +6,7 @@ import axios from 'axios';
 function loadPopularMovies(genreId) {
 	return (dispatch) => {
 		dispatch({ type: ACTIONS.POPULAR_MOVIES_REQUEST_STARTED });
-		const popularMoviesUrl = `${API_BASE_PATH}${URLS.POPULAR_MOVIES_URL}&api_key=${API_KEY}&with_genres=${genreId}`;
+		const popularMoviesUrl = `${API_BASE_PATH}${URLS.POPULAR_MOVIES_PATH}&api_key=${API_KEY}&with_genres=${genreId}`;
 		axios.get(popularMoviesUrl).then(response => {
 			dispatch({
 				type: ACTIONS.POPULAR_MOVIES_REQUEST_COMPLETED,
@@ -57,7 +57,7 @@ function loadFavoriteMovies() {
 			return response;
 		}).then((response) => {
 			let firstGenre = response.data.genres[0];
-			const popularMoviesUrl = `${API_BASE_PATH}${URLS.POPULAR_MOVIES_URL}&api_key=${API_KEY}&with_genres=${firstGenre.id}`;
+			const popularMoviesUrl = `${API_BASE_PATH}${URLS.POPULAR_MOVIES_PATH}&api_key=${API_KEY}&with_genres=${firstGenre.id}`;
 			axios.get(popularMoviesUrl).then(moviesResponse => {
 				dispatch({
 					type: ACTIONS.POPULAR_MOVIES_REQUEST_COMPLETED,

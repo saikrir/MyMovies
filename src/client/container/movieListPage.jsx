@@ -5,7 +5,7 @@ import MovieDetails from '../components/movieDetails';
 import PropTypes from 'prop-types';
 
 
-class MovieList extends Component {
+class MovieListPage extends Component {
 	componentDidMount() {
 		const { match: { params: { id: movieId } } } = this.props;
 		this.props.loadMovieDetails(movieId);
@@ -17,7 +17,7 @@ class MovieList extends Component {
 }
 
 
-MovieList.propTypes = {
+MovieListPage.propTypes = {
 	match: PropTypes.object,
 	loadMovieDetails: PropTypes.func,
 	movieId: PropTypes.string,
@@ -32,6 +32,6 @@ function mapStateToProps({ movieDetails }) {
 
 
 /*eslint no-class-assign: 0 */
-MovieList = connect(mapStateToProps, { loadMovieDetails })(MovieList);
+MovieListPage = connect(mapStateToProps, { loadMovieDetails })(MovieListPage);
 
-export default MovieList;
+export default MovieListPage;

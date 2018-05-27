@@ -22,7 +22,7 @@ class HomePage extends React.Component {
 			this.props.loadFavoriteMovies();
 	}
 
-	componentWillReceiveProps({ popularMovies, selectedGenre }) {
+	componentWillReceiveProps({ selectedGenre }) {
 		//console.log(popularMovies);
 		if (this.props.selectedGenre != selectedGenre) {
 			this.props.loadPopularMovies(selectedGenre);

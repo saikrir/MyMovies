@@ -25,7 +25,7 @@ const MovieDetails = ({ movieDetails }) =>
 						<li className="list-group-item"><b>Genres: </b> {formatDate(movieDetails.release_date)}</li>
 					</ul>
 					<div className="card-body">
-						<NavLink to="/" className="card-link">Home</NavLink>
+						<NavLink to="/Search" className="card-link">Search</NavLink>
 						<a href={`${URLS.IMDB_BASE_PATH}${movieDetails.imdb_id}`} className="card-link" target="_blank"> IMDB </a>
 					</div>
 				</div>
