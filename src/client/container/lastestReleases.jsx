@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {reduxForm, Field, formValueSelector} from 'redux-form';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { reduxForm, Field, formValueSelector } from 'redux-form';
 import latestReleases from '../redux/actions/latestReleasesActionCreator';
 import PropTypes from 'prop-types';
 import MovieResults from '../components/movieResults';
@@ -9,19 +9,19 @@ const ENGLISH = 'en';
 
 class LatestReleases extends Component {
 
-	constructor(props){
+	constructor(props) {
 		super(props);
 	}
 
-	componentDidMount(){
+	componentDidMount() {
 		this.props.latestReleases(ENGLISH);
 	}
 
 
-	componentWillReceiveProps({selectedLanguage}) {
-		let {latestReleases, selectedLanguage: previousLanguage} = this.props;
+	componentWillReceiveProps({ selectedLanguage }) {
+		let { latestReleases, selectedLanguage: previousLanguage } = this.props;
 
-		if(selectedLanguage!== previousLanguage) {
+		if (selectedLanguage != previousLanguage) {
 			latestReleases(selectedLanguage);
 		}
 	}
@@ -37,14 +37,14 @@ class LatestReleases extends Component {
 		);
 	}
 
-	render(){
-		let {results, handleSubmit} = this.props;
+	render() {
+		let { results, handleSubmit } = this.props;
 		return (<div className="container">
 			<form onSubmit={handleSubmit}>
 				<div className="float-right">
 					<div className="form-group">
 						<label htmlFor="languages">Languages: </label>
-						<Field name="languages" component={this.renderSelect} id="languages"  />
+						<Field name="languages" component={this.renderSelect} id="languages" />
 					</div>
 				</div>
 			</form>
@@ -60,21 +60,22 @@ LatestReleases.propTypes = {
 	results: PropTypes.array
 };
 
-function mapStateToPros(state){
-	const selectedLanguage = formValueSelector('LatestReleases')(state, 'languages')|| ENGLISH;
-	let {latestMovies:{results=[], success: callStatus}} = state;
+function mapStateToPros(state) {
+	const selectedLanguage = formValueSelector('LatestReleases')(state, 'languages') || ENGLISH;
+	let { latestMovies: { results = [], success: callStatus } } = state;
 
-	return {initialValues: {
-		languages: selectedLanguage,
-	},
-	selectedLanguage,
-	results, 
-	callStatus
+	return {
+		initialValues: {
+			languages: selectedLanguage,
+		},
+		selectedLanguage,
+		results,
+		callStatus
 	};
 }
 
 /*eslint no-class-assign: 0 */
-LatestReleases = connect(mapStateToPros, {latestReleases})(LatestReleases);
+LatestReleases = connect(mapStateToPros, { latestReleases })(LatestReleases);
 export default reduxForm({
 	form: 'LatestReleases'
 })(LatestReleases);
