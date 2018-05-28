@@ -7,6 +7,8 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import SearchPage from './container/searchPage';
 import Navigation from './components/navigation';
+import Filmography from './container/filmographyPage';
+import lastestReleases from './container/lastestReleases';
 
 
 const App = () => {
@@ -27,7 +29,9 @@ const App = () => {
 const MovieRouter = () => {
 	return (
 		<Switch>
+			<Route path="/LatestReleases" component={lastestReleases} /> 
 			<Route path="/Details/:id" component={MovieListPage} />
+			<Route path="/Filmography/:id/:name" component={Filmography} />
 			<Route path="/Search" component={SearchPage} />
 			<Route path="/" component={HomePage} />
 		</Switch>

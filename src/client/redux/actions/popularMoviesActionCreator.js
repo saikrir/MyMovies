@@ -1,24 +1,34 @@
 import { ACTIONS, API_KEY, URLS, API_BASE_PATH } from '../../constants';
 import axios from 'axios';
 
-
-
 function loadPopularMovies(genreId) {
 	return (dispatch) => {
-		dispatch({ type: ACTIONS.POPULAR_MOVIES_REQUEST_STARTED });
 		const popularMoviesUrl = `${API_BASE_PATH}${URLS.POPULAR_MOVIES_PATH}&api_key=${API_KEY}&with_genres=${genreId}`;
-		axios.get(popularMoviesUrl).then(response => {
-			dispatch({
-				type: ACTIONS.POPULAR_MOVIES_REQUEST_COMPLETED,
-				payload: response.data
-			});
-		}).catch(error => {
-			dispatch({
-				type: ACTIONS.POPULAR_MOVIES_REQUEST_ERROR,
-				payload: error
-			});
-		});
+		makeMoviesListCall(popularMoviesUrl, dispatch);
 	};
+}
+
+function loadFilmograhy(personId) {
+	return (dispatch)=> {
+		const filmographyUrl  = `${API_BASE_PATH}${URLS.POPULAR_MOVIES_PATH}&api_key=${API_KEY}&with_people=${personId}`;
+		makeMoviesListCall(filmographyUrl, dispatch);
+	};
+}
+
+
+function makeMoviesListCall(url, dispatch) {
+	dispatch({ type: ACTIONS.POPULAR_MOVIES_REQUEST_STARTED });
+	axios.get(url).then(response => {
+		dispatch({
+			type: ACTIONS.POPULAR_MOVIES_REQUEST_COMPLETED,
+			payload: response.data
+		});
+	}).catch(error => {
+		dispatch({
+			type: ACTIONS.POPULAR_MOVIES_REQUEST_ERROR,
+			payload: error
+		});
+	});
 }
 
 function loadGenres() {
@@ -80,4 +90,4 @@ function loadFavoriteMovies() {
 }
 
 
-export { loadPopularMovies, loadGenres, loadFavoriteMovies };
+export { loadPopularMovies, loadGenres, loadFavoriteMovies, loadFilmograhy };

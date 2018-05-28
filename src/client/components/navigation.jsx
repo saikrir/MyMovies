@@ -8,6 +8,7 @@ const Navigation = () =>
 				<div className="navbar-nav">
 					<NavLink className={['nav-item', 'nav-link', 'active'].join(' ')} to="/">Home</NavLink>
 					<NavLink className={['nav-item', 'nav-link', 'active'].join(' ')} to="/Search">Search</NavLink>
+					<NavLink className={['nav-item', 'nav-link', 'active'].join(' ')} to="/LatestReleases">Latest Releases</NavLink>
 				</div>
 			</div>
 		</nav>

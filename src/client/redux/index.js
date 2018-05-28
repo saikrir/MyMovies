@@ -4,6 +4,8 @@ import popularMovieReducer from './reducers/popularMoviesReducer';
 import genresReducer from './reducers/genresReducer';
 import movieDetailReducer from './reducers/movieDetailReducer';
 import movieSearchReducer from './reducers/movieSearchReducer';
+import filmographyReducer from './reducers/filmographyReducer';
+import latestMoviesReducer from './reducers/latestMoviesReducer';
 
 
 let rootReducer = combineReducers({
@@ -11,7 +13,9 @@ let rootReducer = combineReducers({
 	popularMovies: popularMovieReducer,
 	genres: genresReducer,
 	movieDetails: movieDetailReducer,
-	movieSearchResults: movieSearchReducer
+	movieSearchResults: movieSearchReducer,
+	filmography: filmographyReducer,
+	latestMovies: latestMoviesReducer
 });
 
 export default rootReducer;

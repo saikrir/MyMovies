@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { URLS } from '../constants';
+import { NavLink } from 'react-router-dom';
 
 const cardStyle = {
 	width: '12rem'
@@ -12,11 +13,15 @@ const CastMemberDetail = ({ castMember }) =>
 		<div className="card" style={cardStyle}>
 			<img className="card-img-top" src={`${URLS.IMAGE_BASE_PATH}/${castMember.profile_path}`} alt="Card image cap" />
 			<div className="card-body">
-				<h5 className="card-title">{castMember.name}</h5>
+
+				<NavLink to={`/Filmography/${castMember.id}/${castMember.name}`}>
+					<h5 className="card-title">
+						{castMember.name}</h5>
+				</NavLink>
 				<p className="card-text">{castMember.character}</p>
 			</div>
 		</div>
-	</li >;
+	</li>;
 
 CastMemberDetail.propTypes = {
 	castMember: PropTypes.object

@@ -15,7 +15,14 @@ export const ACTIONS = {
 	MOVIE_DETAILS_REQUEST_ERROR: 'movie_details_request_error',
 	MOVIE_SEARCH_STARTED: 'movie_search_request_started',
 	MOVIE_SEARCH_COMPLETED: 'movie_search_request_completed',
-	MOVIE_SEARCH_ERROR: 'movie_search_request_error'
+	MOVIE_SEARCH_ERROR: 'movie_search_request_error',
+	FILMOGRAPHY_REQUEST_STARTED: 'filmography_request_started',
+	FILMOGRAPHY_REQUEST_COMPLETED: 'filmography_request_completed',
+	FILMOGRAPHY_REQUEST_ERROR: 'filmography_request_error',
+	LATEST_RELEASES_REQUEST_STARTED: 'latest_movies_request_started',
+	LATEST_RELEASES_REQUEST_COMPLETED: 'latest_movies_request_completed',
+	LATEST_RELEASES_REQUEST_ERROR: 'latest_movies_request_error',
+
 };
 
 export const URLS = {
@@ -25,5 +32,6 @@ export const URLS = {
 	MOVIE_DETAILS: '/3/movie/',
 	IMDB_BASE_PATH: 'https://www.imdb.com/title/',
 	MOVIE_CREDITS_PATH: '/3/movie/{movie_id}/credits',
-	SEARCH_MOVIES_PATH: '/3/search/movie'
+	SEARCH_MOVIES_PATH: '/3/search/movie',
+	LATEST_RELEASES_PATH: '/3/discover/movie'
 };

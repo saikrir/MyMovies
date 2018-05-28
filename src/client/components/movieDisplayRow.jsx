@@ -12,7 +12,7 @@ let MovieDisplayRow = ({ movieRow }) =>
 				<img src={`${URLS.IMAGE_BASE_PATH}/${movieRow.poster_path}`} />
 			</NavLink>
 		</td>
-		<td>{movieRow.original_title}</td>
+		<td>{movieRow.title}</td>
 		<td>{movieRow.overview}</td>
 		<td>{formatDate(movieRow.release_date)}</td>
 	</tr >;
