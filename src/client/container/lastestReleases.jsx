@@ -48,7 +48,7 @@ class LatestReleases extends Component {
 					</div>
 				</div>
 			</form>
-			<MovieResults results={results} />
+			<MovieResults results={results} showGenres={true}/>
 		</div>);
 	}
 }

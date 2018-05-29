@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MovieDisplayRow from './movieDisplayRow';
 
-let MovieResults = ({ results }) => {
+let MovieResults = ({ results, showGenres }) => {
 	return (
 		<table className="table">
 			<thead>
@@ -14,14 +14,15 @@ let MovieResults = ({ results }) => {
 				</tr>
 			</thead>
 			<tbody>
-				{results.map(result => <MovieDisplayRow movieRow={result} key={result.id} />)}
+				{results.map(result => <MovieDisplayRow movieRow={result} key={result.id} showGenres={showGenres} />)}
 			</tbody>
 		</table>
 	);
 };
 
 MovieResults.propTypes = {
-	results: PropTypes.array
+	results: PropTypes.array,
+	showGenres: PropTypes.bool
 };
 
 export default MovieResults;
