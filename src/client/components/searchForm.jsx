@@ -11,27 +11,32 @@ const validateMovieName = value => {
 	return value ? undefined : 'Movie Name field is required';
 };
 
-const renderInput = ({ input, meta, ...rest }) => {
-	return <div>
+const renderInput = (field) => {
+	let { input, meta, ...rest } = field;
+	return (<div>
 		<input  {...input} {...rest} />
 		{(meta.touched && meta.invalid) &&
 			(<div className='bg-danger'>
 				{meta.error}
 			</div>)}
-	</div>;
+	</div>);
 };
 
 const normalizeSearch = value => value && value.toUpperCase();
 
 
-const SearchForm = () =>
+let SearchForm = () =>
 	<div className={['card'].join(' ')} style={cardStyle}>
 		<div className="card-header">
 			Search Movies
 		</div>
 		<div className='form-group'>
 			<label htmlFor="searchQuery">Search</label>
-			<Field component={renderInput} className="form-control" id="searchQuery" name="searchQuery" placeholder="Movie name"
+			<Field component={renderInput}
+				className="form-control"
+				id="searchQuery"
+				name="searchQuery"
+				placeholder="Movie name"
 				validate={[validateMovieName]}
 				normalize={normalizeSearch} />
 		</div>

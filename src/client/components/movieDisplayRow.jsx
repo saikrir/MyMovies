@@ -13,16 +13,16 @@ let MovieDisplayRow = ({ movieRow, showGenres = false }) =>
 			</NavLink>
 		</td>
 		<td>{movieRow.title}</td>
-		<td>{movieRow.overview} <br/><b>
+		<td>{movieRow.overview} <br /><b>
 			{showGenres ?
-		  `Genres: ${genereLabels(movieRow.genre_ids)}`: '' }
+				`Genres: ${genereLabels(movieRow.genre_ids)}` : ''}
 		</b></td>
 		<td>{formatDate(movieRow.release_date)}</td>
 	</tr >;
 
 MovieDisplayRow.propTypes = {
 	movieRow: PropTypes.object,
-	showGenre: PropTypes.bool
+	showGenres: PropTypes.bool
 };
 
 export default MovieDisplayRow;
