@@ -1,10 +1,28 @@
 import React from 'react';
 import { Field } from 'redux-form';
+import PropTypes from 'prop-types';
 
 
 const cardStyle = {
 	width: '48rem'
 };
+
+const validateMovieName = value => {
+	return value ? undefined : 'Movie Name field is required';
+};
+
+const renderInput = ({ input, meta, ...rest }) => {
+	return <div>
+		<input  {...input} {...rest} />
+		{(meta.touched && meta.invalid) &&
+			(<div className='bg-danger'>
+				{meta.error}
+			</div>)}
+	</div>;
+};
+
+const normalizeSearch = value => value && value.toUpperCase();
+
 
 const SearchForm = () =>
 	<div className={['card'].join(' ')} style={cardStyle}>
@@ -13,7 +31,9 @@ const SearchForm = () =>
 		</div>
 		<div className='form-group'>
 			<label htmlFor="searchQuery">Search</label>
-			<Field component="input" className="form-control" id="searchQuery" name="searchQuery" placeholder="Movie name" />
+			<Field component={renderInput} className="form-control" id="searchQuery" name="searchQuery" placeholder="Movie name"
+				validate={[validateMovieName]}
+				normalize={normalizeSearch} />
 		</div>
 		<div className='form-group'>
 			<label htmlFor="language">Language</label>
@@ -30,5 +50,10 @@ const SearchForm = () =>
 			&nbsp;
 		</div>
 	</div>;
+
+SearchForm.propTypes = {
+	input: PropTypes.object,
+	meta: PropTypes.object
+};
 
 export default SearchForm;
