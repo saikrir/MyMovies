@@ -22,6 +22,12 @@ export const todayStr = ()=> {
 	return `${dt.getFullYear()}-${month}-${dt.getDate()}`;
 };
 
+export const quaterFromToday = ()=> {
+	let dt = new Date();
+	let month = _.padStart(dt.getMonth()+4, 2, '0');
+	return `${dt.getFullYear()}-${month}-${dt.getDate()}`;
+};
+
 export const genereLabels = (genereIds=[]) => {
 	let labels= genereIds.map(genreId => {
 		let filteredGenres = genresArray.find(genre => genre.id === genreId );
