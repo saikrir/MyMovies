@@ -8,7 +8,8 @@
     "server": "node ./src/server/index.js",
     "start": "npm-run-parallel dev server",
     "lint": "eslint src --ext .js,.jsx",
-    "lint-fix": "eslint src --ext .js,.jsx --fix"
+    "lint-fix": "eslint src --ext .js,.jsx --fix",
+    "prod": "NODE_ENV=production webpack-dev-server -p"
   },
   "author": "",
   "license": "ISC",
