@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { URLS } from '../constants';
+import { IMAGE_BASE_PATH } from '../constants';
 import { NavLink } from 'react-router-dom';
 
 const cardStyle = {
@@ -11,7 +11,7 @@ const cardStyle = {
 const CastMemberDetail = ({ castMember }) =>
 	<li>
 		<div className="card" style={cardStyle}>
-			<img className="card-img-top" src={`${URLS.IMAGE_BASE_PATH}/${castMember.profile_path}`} alt="Card image cap" />
+			<img className="card-img-top" src={`${IMAGE_BASE_PATH}/${castMember.profile_path}`} alt="Card image cap" />
 			<div className="card-body">
 
 				<NavLink to={`/Filmography/${castMember.id}/${castMember.name}`}>

@@ -2,6 +2,9 @@ export const API_KEY = 'fa30fafc13c23c2ad39084000be87c81';
 export const API_BASE_PATH = 'https://api.themoviedb.org/';
 export const THRILLER_GENRE = '9648';
 //export const API_BASE_PATH = 'http://localhost:3000';
+export const IMDB_BASE_PATH = 'https://www.imdb.com/title/';
+export const IMAGE_BASE_PATH = 'http://image.tmdb.org/t/p/w185/';
+const API_VERSION = '3';
 
 export const ACTIONS = {
 	POPULAR_MOVIES_REQUEST_STARTED: 'popular_movies_request_started',
@@ -26,14 +29,12 @@ export const ACTIONS = {
 };
 
 export const URLS = {
-	POPULAR_MOVIES_PATH: '/3/discover/movie?en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1',
-	IMAGE_BASE_PATH: 'http://image.tmdb.org/t/p/w185/',
-	MOVIE_GENRES: '/3/genre/movie/list?language=en-US',
-	MOVIE_DETAILS: '/3/movie/',
-	IMDB_BASE_PATH: 'https://www.imdb.com/title/',
-	MOVIE_CREDITS_PATH: '/3/movie/{movie_id}/credits',
-	SEARCH_MOVIES_PATH: '/3/search/movie',
-	LATEST_RELEASES_PATH: '/3/discover/movie'
+	POPULAR_MOVIES_PATH: `${API_VERSION}/discover/movie?en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1`,
+	MOVIE_GENRES: `${API_VERSION}/genre/movie/list?language=en-US`,
+	MOVIE_DETAILS: `${API_VERSION}/movie/`,
+	MOVIE_CREDITS_PATH: `${API_VERSION}/movie/{movie_id}/credits`,
+	SEARCH_MOVIES_PATH: `${API_VERSION}/search/movie`,
+	LATEST_RELEASES_PATH: `${API_VERSION}/discover/movie`
 };
 
 

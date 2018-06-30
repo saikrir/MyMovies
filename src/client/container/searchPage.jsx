@@ -19,12 +19,14 @@ class SearchPage extends Component {
 
 	render() {
 		const { searchResults, handleSubmit, callStatus, error } = this.props;
-		let resultsOrError = callStatus ? <MovieResults results={searchResults} showGenres={true}/> : error;
+		let resultsOrError = callStatus ? <MovieResults results={searchResults} showGenres={true} /> : error;
 
 		return (
 			<form onSubmit={handleSubmit(this.handleMovieSearch)}>
-				<SearchForm />
-				{resultsOrError}
+				<div className="container">
+					<SearchForm />
+					{resultsOrError}
+				</div>
 			</form>
 		);
 	}

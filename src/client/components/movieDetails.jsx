@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { URLS } from '../constants';
+import { IMAGE_BASE_PATH, IMDB_BASE_PATH } from '../constants';
 import { NavLink } from 'react-router-dom';
 import { formatDate } from '../helper/movieUtils';
 import CastMemberDetail from './castMemberDetail';
@@ -14,7 +14,7 @@ const MovieDetails = ({ movieDetails }) =>
 		<div className="row">
 			<div className="col-6">
 				<div className="card" style={cardStyle}>
-					<img className="card-img-top" src={`${URLS.IMAGE_BASE_PATH}/${movieDetails.poster_path}`} alt="Movie Poster" />
+					<img className="card-img-top" src={`${IMAGE_BASE_PATH}/${movieDetails.poster_path}`} alt="Movie Poster" />
 					<div className="card-body">
 						<h5 className="card-title">{movieDetails.original_title}</h5>
 						<p className="card-text">{movieDetails.overview}</p>
@@ -26,7 +26,7 @@ const MovieDetails = ({ movieDetails }) =>
 					</ul>
 					<div className="card-body">
 						<NavLink to="/Search" className="card-link">Search</NavLink>
-						<a href={`${URLS.IMDB_BASE_PATH}${movieDetails.imdb_id}`} className="card-link" target="_blank"> IMDB </a>
+						<a href={`${IMDB_BASE_PATH}${movieDetails.imdb_id}`} className="card-link" target="_blank"> IMDB </a>
 					</div>
 				</div>
 			</div>

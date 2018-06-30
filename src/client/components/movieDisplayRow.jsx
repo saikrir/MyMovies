@@ -1,5 +1,5 @@
 import React from 'react';
-import { URLS } from '../constants';
+import { IMAGE_BASE_PATH } from '../constants';
 import { formatDate, genereLabels } from '../helper/movieUtils';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -9,7 +9,7 @@ let MovieDisplayRow = ({ movieRow, showGenres = false }) =>
 	<tr>
 		<td scope="row">
 			<NavLink to={`/Details/${movieRow.id}`}>
-				<img src={`${URLS.IMAGE_BASE_PATH}/${movieRow.poster_path}`} />
+				<img src={`${IMAGE_BASE_PATH}/${movieRow.poster_path}`} />
 			</NavLink>
 		</td>
 		<td>{movieRow.title}</td>
